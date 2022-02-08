@@ -1,0 +1,29 @@
+CREATE TABLE `book` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `isbn` varchar(45) DEFAULT NULL,
+  `title` varchar(45) DEFAULT NULL,
+  `publisher` varchar(45) DEFAULT NULL,
+  `language` varchar(45) DEFAULT NULL,
+  `category_id` bigint(20) DEFAULT NULL,
+  `favourites` tinyint(4) DEFAULT NULL,
+  `datecreated` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKam9riv8y6rjwkua1gapdfew4j` (`category_id`),
+  CONSTRAINT `FKam9riv8y6rjwkua1gapdfew4j` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE `category` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `categoryname` varchar(45) DEFAULT NULL,
+  `bookid` bigint(20) DEFAULT NULL,
+  `datecreated` datetime DEFAULT NULL,
+  `book_id_id` bigint(20) DEFAULT NULL,
+  `book_id_id_id` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FKhc0m3j1ubx5hib75bip0830do` (`bookid`),
+  KEY `FK4jlbsqgcv9rt7j8hn0d977sw2` (`book_id_id`),
+  KEY `FK6k2y697bw3o9gif62gh82gdwx` (`book_id_id_id`),
+  CONSTRAINT `FK4jlbsqgcv9rt7j8hn0d977sw2` FOREIGN KEY (`book_id_id`) REFERENCES `book` (`id`),
+  CONSTRAINT `FK6k2y697bw3o9gif62gh82gdwx` FOREIGN KEY (`book_id_id_id`) REFERENCES `book` (`id`),
+  CONSTRAINT `FKhc0m3j1ubx5hib75bip0830do` FOREIGN KEY (`bookid`) REFERENCES `book` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4;
