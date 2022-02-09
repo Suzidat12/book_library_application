@@ -1,5 +1,6 @@
 # book_library_application
 - The project is creaated using a Spring Boot Application and necessary dependencies has been added.
+- Clone the project from github
 - MySQL information is added to the application.properties to be able to have access to the database.
 - Used IntelliJ IDE to download the necessary dependencies by runing it with mvn clean spring-booot:run
 - After running the appication using any IDE of choice.
