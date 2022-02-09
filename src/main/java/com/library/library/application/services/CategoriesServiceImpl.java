@@ -26,10 +26,10 @@ public class CategoriesServiceImpl implements CategoriesServices {
     // Get the id of book list in other to map it to the category to be able to add books to category
     public ResponseEntity addCategory(CategoryRequest payload) {
         List<Category> categoryList = categoryRepoistory.findByCategoryname(payload.getCategoryname());
-       Optional<Book> bookList = bookRepo.findById(payload.getBookid().getId());
-       if(bookList.isEmpty()){
-           return ResponseEntity.ok("Book with specified ID not found");
-       }
+        Optional<Book> bookList = bookRepo.findById(payload.getBookid().getId());
+        if(bookList.isEmpty()){
+            return ResponseEntity.ok("Book with specified ID not found");
+        }
         if (!categoryList.isEmpty()) {
             return ResponseEntity.ok("Category name already exist");
         } else {
@@ -57,7 +57,7 @@ public class CategoriesServiceImpl implements CategoriesServices {
     public ResponseEntity listCategory() {
         List<Category> categoryList = categoryRepoistory.findAll();
 
-        return ResponseEntity.ok(categoryList);
+        return ResponseEntity.ok(categoryList, Htt);
     }
 
     @Override
@@ -67,7 +67,6 @@ public class CategoriesServiceImpl implements CategoriesServices {
         categoryRepoistory.delete(category);
         return true;
     }
-
 
 
 
